@@ -1,0 +1,23 @@
+.veridico {
+    background-color: rgb(110, 0, 92);
+}
+
+.irreal{
+    Display:flex;
+   Justify-content:center;
+   align-items:center;
+   background-color: rgb(255, 0, 179);
+}
+
+.talvez {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 495px;
+}
+
+#nomezin {
+    font-size: 50px;
+ }
