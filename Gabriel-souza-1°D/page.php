@@ -26,3 +26,6 @@ $result = mysqli_query($conexao, "SELECT * FROM usuerio");
     </div>
 </body>
 </html>
+
+
+
