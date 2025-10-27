@@ -1,17 +1,309 @@
-#batman {
-    background-color: rgb(255, 0, 0);
-    width: 1000px;
-    height: 1000px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-
+/* Estilização da lista de itens dentro do cartão */
+.usuerio li {
+    padding: 3px 0;
+    line-height: 1.6;
+    font-size: 0.95em;
+    position: relative; /* Necessário para posicionar o ícone */
+    padding-left: 20px; /* Cria espaço para o ícone */
 }
 
+/* Criando o efeito de ícone (usando unicode ou Font Awesome se você linkar) */
+.usuerio li::before {
+    content: "•"; /* Ponto simples como ícone padrão */
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: #3182ce; /* Cor de destaque */
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Customização de ícones para os itens específicos (requer o ajuste do HTML) */
+/* Se você puder adicionar uma classe como 'item-id', 'item-nome', etc. em seu HTML, adicione este CSS: */
+
+/* Exemplo de como ficaria com um ícone Unicode: */
+.usuerio li:nth-child(1)::before { content: "🆔"; } /* ID */
+.usuerio li:nth-child(2)::before { content: "👤"; } /* Nome */
+.usuerio li:nth-child(3)::before { content: "📧"; } /* Email */
+
+
+.usuerio li strong {
+    color: #4a5568; /* Cor ligeiramente mais escura e formal */
+    font-weight: 600;
+    display: inline-block;
+    min-width: 90px;
+    margin-right: 5px;
+}
+/* -------------------- ESTILO DO CARTÃO DE PEDIDO (.usuerio) -------------------- */
+.usuerio {
+    list-style: none;
+    padding: 20px;
+    margin: 0; /* O Grid controla o espaçamento */
+    background-color: #ffffff;
+    border: none; /* Remove a borda, confiamos na sombra */
+    border-radius: 10px; /* Bordas levemente mais arredondadas */
+    
+    /* Sombra mais suave, dando a impressão de flutuar */
+    box-shadow: 0 4px 10px rgba(45, 55, 72, 0.05), 0 0 1px rgba(45, 55, 72, 0.1); 
+    
+    /* Aumenta a transição para um efeito mais suave */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s;
+}
+
+.usuerio:hover {
+    transform: translateY(-5px); /* Lift maior no hover */
+    /* Sombra mais pronunciada e colorida sutilmente */
+    box-shadow: 0 10px 25px rgba(49, 130, 206, 0.1), 0 0 1px rgba(45, 55, 72, 0.15);
+}
+
+
+/* -------------------- ESTILO DO FORMULÁRIO (#batman) -------------------- */
+#batman {
+    background: linear-gradient(135deg, #f7fafc, #edf2f7); /* Gradiente suave */
+    border: 1px solid #e2e8f0;
+    padding: 30px; /* Mais preenchimento */
+    border-radius: 10px;
+    margin-bottom: 40px;
+    
+    /* Animação sutil para o formulário */
+    animation: fadeIn 1s ease-out; 
+}
+
+/* Regra de Animação (Adicionar no final do CSS) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------- BOTÃO (btn) -------------------- */
+.btn {
+    /* Adicionando sombra no botão */
+    box-shadow: 0 4px 6px rgba(50, 200, 100, 0.3); 
+    font-weight: 700;
+}
+
+.btn:hover {
+    /* Efeito de afundamento sutil */
+    transform: translateY(0); 
+    box-shadow: 0 2px 4px rgba(50, 200, 100, 0.4); 
+}
+/* Importando uma fonte mais agradável do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* ------------------------------------------------------------------- */
+/* 1. ESTILOS GERAIS E LAYOUT DA PÁGINA (MELHORADOS) */
+/* ------------------------------------------------------------------- */
+
 body {
-    background-color: blue;
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    background-color: #eef2f7; /* Fundo muito leve e fresco */
+    color: #333;
+    margin: 0;
+    padding: 20px 0;
+    line-height: 1.6;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#geral {
+    width: 95%;
+    max-width: 1100px; /* Um pouco mais largo */
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra mais suave e moderna */
+    border-radius: 12px;
 }
 
 #header {
-    justify-content: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#header h1 {
+    color: #4a5568; /* Tonalidade de azul mais sofisticada */
+    font-size: 2.8em;
+    font-weight: 600; /* Mais destaque */
+    margin: 0;
+    position: relative;
+}
+
+#header h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #3182ce; /* Azul vibrante */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* 2. ESTILOS DO FORMULÁRIO (#batman e #coringa) (APRIMORADOS) */
+/* ------------------------------------------------------------------- */
+
+#batman {
+    background-color: #f7fafc; /* Fundo quase branco */
+    border: 1px solid #edf2f7;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+#coringa label {
+    font-weight: 600;
+    color: #4a5568;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 0.95em;
+}
+
+#coringa input[type="text"],
+#coringa textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#coringa input[type="text"]:focus,
+#coringa textarea:focus {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2); /* Efeito "anel de foco" */
+    outline: none;
+}
+
+#coringa textarea {
+    height: 120px;
+}
+
+.btn {
+    background-color: #38a169; /* Verde mais profissional */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn:hover {
+    background-color: #2f855a;
+    transform: translateY(-1px); /* Pequeno lift ao passar o mouse */
+}
+
+/* Estilo para a validação (jQuery Validate) */
+label.error {
+    color: #e53e3e;
+    font-size: 0.85em;
+    font-weight: 400;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* ------------------------------------------------------------------- */
+/* 3. LAYOUT DE CARTÕES COM GRID (O GRANDE UPGRADE) */
+/* ------------------------------------------------------------------- */
+
+/* Envolve o loop PHP com este DIV no seu HTML para ativar o Grid: */
+/* <div class="mural-cartoes"> ... (seu loop while) ... </div> */
+
+/* Se você NÃO puder envolver o loop, adicione esta regra extra ao .usuerio: */
+/* (Se a lista de pedidos estiver diretamente em #geral, essa abordagem é mais limitada) */
+/* Se puder envolver, use a próxima regra. */
+#geral > .usuerio {
+    /* Reseta o display para não quebrar o fluxo se for o caso */
+    margin: 15px 0; 
+}
+
+
+/* Usando o UL como cartão individual */
+.usuerio {
+    list-style: none;
+    padding: 20px;
+    margin: 15px; /* Espaço entre os cartões (se estiverem em Grid) */
+    background-color: #ffffff;
+    border: 1px solid #ebf4f5;
+    border-left: 6px solid #3182ce; /* Barra lateral azul */
+    border-radius: 8px;
+    /* Sombra de cartão elegante */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.usuerio:hover {
+    transform: translateY(-3px); /* Efeito 3D sutil */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.usuerio li {
+    padding: 3px 0;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.usuerio li strong {
+    color: #3182ce;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 90px;
+}
+
+/* Destaque para a Mensagem */
+.usuerio li:last-child {
+    background-color: #edf2f7;
+    border-left: 3px solid #4a5568;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    font-style: italic;
+    color: #4a5568;
+    font-weight: 300;
+}
+
+/* ------------------------------------------------------------------- */
+/* 4. RODAPÉ */
+/* ------------------------------------------------------------------- */
+
+#footer {
+    height: 50px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+    color: #a0aec0;
+    font-size: 0.9em;
+}
+
+/* ------------------------------------------------------------------- */
+/* 5. MEDIA QUERIES (RESPONSIVIDADE) */
+/* ------------------------------------------------------------------- */
+
+/* Para telas menores (celulares) */
+@media (max-width: 768px) {
+    #geral {
+        width: 100%;
+        padding: 15px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    #header h1 {
+        font-size: 2em;
+    }
+    
+    .usuerio {
+        margin: 10px 0;
+    }
 }
